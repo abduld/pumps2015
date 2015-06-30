@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 
-libwb
-=====
+PUMPS 2015 Machine Problems
+===========================
 
 
 
@@ -68,6 +67,3 @@ Best regards,
 
 P/s1: Sorry about the name of project, it should be hetero14 but I forget that we are already in the new year. My appologize :-P 
 
-=======
-# pumps2015
->>>>>>> origin/master
