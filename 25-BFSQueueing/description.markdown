@@ -1,5 +1,5 @@
 ---
-title: BFS Queueing
+title: Breadth-First Search
 author: PUMPS 2015
 ---
 
@@ -7,15 +7,20 @@ author: PUMPS 2015
 
 The purpose of this lab is to understand hierarchical queuing in the context of the breadth first search algorithm as an example. You will implement a single iteration of breadth first search that takes a set of nodes in the current level (also called wave-front) as input and outputs the set of nodes belonging to the next level.
 
+# Dataset Information
+
+* Datasets `0`, `1`, and `2` perform the computation using `gpu_global_queueing_kernel`
+* Datasets `3`, `4`, and `5` perform the computation using `gpu_block_queuing_kernel`
+* Datasets `6`, `7`, and `8` perform the computation using `gpu_warp_queueing_kernel`
+
 # Instructions
 
-In the provided source code you will find a function named `s2g_cpu_scatter`.
-This function implements a simple scatter pattern on CPU.
-It loops over an input array, then for each input element it performs some computation (`outInvariant(...)`), loops over the output array, does some more computation (`outDependent(...)`), and accumulates to the output element.
+* Edit the kernel `gpu_global_queuing_kernel` in the file to implement the algorithm using just a global queue. Compile and test the code for datasets `0`, `1`, and `2`.
+* Edit the kernel `gpu_block_queuing_kernel` in the file to implement the algorithm using block and global queuing. Compile and test the code for datasets `3`, `4`, and `5`.
+* Edit the kernel `gpu_warp_queueing_kernel` in the file to implement the algorithm using warp, block, and global queuing. Compile and test the code for datasets  `6`, `7`, and `8`.
 
-* Edit the function `s2g_cpu_gather` to implement a gather version of `s2g_cpu_scatter` on CPU. Compile and test the code.
-* Edit the kernel `s2g_gpu_scatter_kernel` to implement a scatter version of `s2g_cpu_scatter` on the GPU, and edit the function `s2g_gpu_scatter` to launch the kernel you implemented.
-* Edit the kernel `s2g_gpu_gather_kernel` to implement a gather version of `s2g_cpu_gather` on the GPU, and edit the function `s2g_gpu_gather` to launch the kernel you implemented.
+
+Try running all four implementations using varying input sizes. Compare the performance and scalability of each implementation. Think about why you think each implementation performs better or worse than the one before it.
 
 
 Instructions about where to place each part of the code is
